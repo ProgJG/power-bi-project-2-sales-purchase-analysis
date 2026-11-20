@@ -1,153 +1,162 @@
-# Power BI Project 2 --- Sales & Purchase Performance Analysis
+# Data Compass | Power BI — Sales & Purchase Analytics
 
-**A decision-support portfolio case study using synthetic retail sales
-and purchasing data.**
+**A synthetic-data business intelligence portfolio project for commercial profitability, category performance, and strategic decision support.**
 
-> **Portfolio status:** Prepared for review. This project has not been
-> approved for public publication. All figures below are demonstration
-> results, not actual company performance.
+> **Portfolio demonstration only.** All source data is synthetic. Results, category names, supplier names, intervention plans, and simulated financial outcomes do not represent actual company performance.
 
-## Executive overview
+## Project overview
 
-This Power BI project connects sales, purchasing, category performance,
-profitability analysis, and intervention planning in one
-decision-support model. It demonstrates how operational and procurement
-data can support management decisions through transparent KPIs,
-reconciliations, and scenario-based analysis.
+This Power BI project demonstrates an end-to-end analytical workflow for sales and purchasing data: source preparation, Power Query transformations, dimensional modelling, DAX measures, financial reconciliation, interactive reporting, and scenario-based decision support.
 
-The dataset is synthetic and covers **January 2018 through October
-2019**. The purpose is to demonstrate analytical methodology rather than
-report the performance of a real business.
+The reporting experience connects historical performance analysis with potential management actions, including margin improvement, pricing optimisation, supplier negotiations, and execution tracking.
 
-## Business questions
+## Business objectives
 
--   How do sales, cost of goods sold, gross profit, and purchasing
-    values compare?
--   Which categories contribute most to sales and profitability?
--   Which categories have negative gross margins and require management
-    attention?
--   What is the simulated impact of margin-improvement interventions?
--   How can category master-data coverage and model consistency be
-    validated?
+- Monitor revenue, cost of goods sold (COGS), gross profit, and gross margin.
+- Compare category profitability and identify loss-making categories.
+- Assess targeted margin-recovery opportunities and break-even requirements.
+- Test commercial scenarios through interactive what-if parameters.
+- Track strategic actions and distinguish expected, simulated, and actual financial outcomes.
+- Validate key financial measures and category mappings.
 
-## Validated reference KPIs
+## Financial baseline
 
-  Metric                                      Value
-  ----------------------------- -------------------
-  Net Sales                       1,087,604,416 HUF
-  Cost of Goods Sold (COGS)         988,885,175 HUF
-  Gross Profit                       98,719,241 HUF
-  Net Purchase                    1,286,211,333 HUF
-  Sales Quantity                      117,311 units
-  Gross Profit Reconciliation                 0 HUF
+Reference totals for the supplied synthetic dataset, with report filters cleared:
 
-These values are reference totals for the supplied synthetic workbook
-and the validated Power BI model.
+| Metric | Reference value |
+|---|---:|
+| Net sales | HUF 1,087,604,416 |
+| COGS | HUF 988,885,175 |
+| Gross profit | HUF 98,719,241 |
+| Gross margin | 9.08% |
+| Net purchases | HUF 1,286,211,333 |
+| Sales quantity | 117,311 units |
+| Gross profit reconciliation | HUF 0 |
 
-## Analytical components
+**Note:** Report visuals may display rounded values (M/K). Individual intervention and scenario metrics depend on the current filter and parameter context.
 
-### Sales and purchasing performance
+## Dashboard gallery
 
-The model combines synthetic sales and purchase facts with shared
-analytical dimensions. It supports comparison of commercial performance,
-purchase activity, and gross profit.
+The seven selected portfolio pages illustrate the core analytical and management capabilities. Images are linked using repository-relative paths.
 
-### Category performance and validation
+### 1. Category Performance Overview
 
-Category-level analysis identifies margin distribution, including
-loss-making categories. Validation queries check category-code coverage,
-missing keys, duplicate codes, and sales/purchase alignment.
+Executive view of net sales, gross profit, gross margin, sales distribution by margin band, loss-making categories, and year-on-year comparison (January–October).
 
-### Margin simulation and intervention strategy
+![Category Performance Overview](05_PORTFOLIO_SCREENSHOTS/01_Category_Performance_Overview.png)
 
-Scenario controls and improvement assumptions illustrate the potential
-financial effect of category-level actions. The simulations are
-illustrative, not forecasts or evidence of realized savings.
+### 2. Category Intervention Matrix
 
-### Action planning
+A visual comparison of current gross profit loss and differentiated improvement potential, supported by a category-level intervention matrix.
 
-The sample action plan demonstrates pricing optimization and supplier
-negotiation workflows. Action owners, statuses, priorities, and expected
-improvement values are synthetic examples.
+![Category Intervention Matrix](05_PORTFOLIO_SCREENSHOTS/02_Intervention_Matrix.png)
 
-### Data quality and reconciliation
+### 3. Intervention Strategy
 
-The project includes checks for category relationship keys,
-source/master coverage, and financial consistency. The reference
-gross-profit reconciliation equals zero.
+Targeted margin-recovery analysis, including current gross profit loss, additional profit potential, remaining gap, and recovery rate.
 
-## Data and model scope
+![Intervention Strategy](05_PORTFOLIO_SCREENSHOTS/03_Intervention_Strategy.png)
 
--   **1,000 synthetic sales records**
--   **1,300 synthetic purchase records**
--   **40 synthetic categories**
--   **18 synthetic suppliers**
--   **22 monthly periods** (January 2018--October 2019)
--   Power Query transformation, fact/dimension modeling, DAX measures,
-    validation, and scenario analysis
+### 4. Margin Simulation Dashboard
 
-## Report preview
+Scenario comparison across conservative, base, and optimistic assumptions, with category-level improvement plans and targeted versus full-portfolio outcomes.
 
-Screenshots will be added after a separate review for publication
-safety.
+![Margin Simulation Dashboard](05_PORTFOLIO_SCREENSHOTS/04_Margin_Simulation.png)
 
-```{=html}
-<!-- Add reviewed images under screenshots/ and reference them here. -->
-```
-## Repository contents
+### 5. OBI What-if Simulation
 
-``` text
-power-bi-project-2-sales-purchase-analysis/
+Interactive sensitivity analysis for changes in selling prices, purchase costs, and sales volume, with recalculated sales, COGS, profit, and margin.
+
+![OBI What-if Simulation](05_PORTFOLIO_SCREENSHOTS/05_OBI_What_If.png)
+
+### 6. Action Execution Dashboard
+
+Strategic action monitoring with status distribution, ownership, priorities, and an action register. The example dataset includes two illustrative actions.
+
+![Action Execution Dashboard](05_PORTFOLIO_SCREENSHOTS/06_Action_Execution.png)
+
+### 7. Financial Realization
+
+Separate views of expected financial impact and **illustrative simulation test data**. Actual financial realization is intentionally blank because the synthetic source contains no recorded actual realization values.
+
+![Financial Realization](05_PORTFOLIO_SCREENSHOTS/07_Financial_Realization.png)
+
+## Technical approach
+
+| Layer | Implementation |
+|---|---|
+| Data source | Synthetic Excel workbook, covering 2018 and 2019 sales and purchasing records |
+| Data preparation | Power Query staging, cleaning, transformation, and audit queries |
+| Analytical model | Sales and purchase fact tables connected to date and category dimensions |
+| Calculations | DAX financial measures, margin bands, reconciliations, interventions, and scenario calculations |
+| Interactivity | Slicers, category drill-down, what-if parameters, and scenario selection |
+| Validation | Financial reconciliation, category coverage checks, and action-plan consistency tests |
+| Presentation | Power BI Desktop with a consistent Data Compass visual design |
+
+Selected model objects include `fact_sales`, `fact_purchase`, `dim_date`, `dim_category`, `dim_category_action_plan`, and intervention/scenario support tables. The report also contains technical validation pages, which are not part of the seven-image portfolio gallery.
+
+## Key analytical capabilities
+
+**Profitability analysis:** Measure category contribution, detect negative-margin categories, and compare financial performance across periods.
+
+**Targeted intervention modelling:** Estimate the impact of differentiated percentage-point improvements and measure remaining recovery gaps. These are illustrative estimates, not guaranteed savings.
+
+**What-if simulation:** Change sales prices, purchasing costs, and sales volume independently to examine directional effects on financial outcomes.
+
+**Execution and realization:** Connect proposed commercial actions to owners and statuses; keep expected impacts separate from simulated realization and unavailable actual results.
+
+## Files and repository layout
+
+The expected published structure is:
+
+```text
+.
 ├── README.md
-├── Project_2_PORTFOLIO.pbix
-├── Project_2_Synthetic_Data.xlsx
-├── README_Project_2.txt
-└── screenshots/
+├── Project_2_PORTFOLIO_FINAL.pbix
+├── Project_2_Synthetic_Data_GITHUB.xlsx
+├── 05_PORTFOLIO_SCREENSHOTS/
+    ├── 01_Category_Performance_Overview.png
+    ├── 02_Intervention_Matrix.png
+    ├── 03_Intervention_Strategy.png
+    ├── 04_Margin_Simulation.png
+    ├── 05_OBI_What_If.png
+    ├── 06_Action_Execution.png
+    └── 07_Financial_Realization.png
 ```
 
-The screenshot directory is planned and may be empty during preparation.
+The screenshot names and relative paths must match the actual files uploaded to the repository. The original working PBIP folders, backup files, and confidential source workbooks are **not** intended for publication.
 
-## Open and refresh locally
+## How to open and refresh the report
 
-1.  Install **Microsoft Power BI Desktop**.
-2.  Download the PBIX, synthetic Excel workbook, and installation
-    instructions.
-3.  Open `Project_2_PORTFOLIO.pbix`.
-4.  Go to **Home → Transform data → Edit parameters**.
-5.  Set `pSourceFilePath` to the full local path of
-    `Project_2_Synthetic_Data.xlsx`.
-6.  Confirm the change and select **Apply changes** if prompted.
-7.  Allow the model to load; use **Home → Refresh** if necessary.
-8.  Compare the six reference KPIs above with the **Model Validation**
-    report.
+1. Download `Project_2_PORTFOLIO_FINAL.pbix` and `Project_2_Synthetic_Data_GITHUB.xlsx` to your computer.
+2. Open the PBIX in **Microsoft Power BI Desktop**.
+3. Go to **Home → Transform data → Edit parameters**.
+4. Set `pSourceFilePath` to the **full local path** of your downloaded `Project_2_Synthetic_Data_GITHUB.xlsx` file. Do not include quotation marks around the path.
+5. If prompted, configure the local Excel file's data-source permissions.
+6. With filters cleared and what-if parameters at their baseline values, compare the results with the **Financial baseline** table above.
 
-The PBIX may initially refer to the example location
-`C:\PortfolioData\Project_2_Synthetic_Data.xlsx`. Users should replace
-it with their own file path. See `README_Project_2.txt` for the
-Hungarian installation guide.
+For more detailed instructions, see `README_Project_2.txt`.
 
-## Interpretation and limitations
+## Data quality and validation
 
--   **Synthetic data:** No presented result represents actual company
-    performance.
--   **Scenario assumptions:** Margin improvements and interventions are
-    illustrative inputs, not measured outcomes.
--   **Historical scope:** The dataset covers a fixed 22-month
-    demonstration period.
--   **Portability:** A local Excel path must be configured before
-    refreshing on another computer.
--   **Power BI Desktop required:** GitHub does not render the PBIX as an
-    interactive report.
+The model includes checks for unmatched sales/purchase categories, financial reconciliation, and action-plan consistency. The reviewed baseline returned **zero gross profit reconciliation difference**. Technical audit pages support development and verification but are not all included in the public screenshot selection.
 
-## Publication and privacy
+## Data provenance and limitations
 
-The repository is being prepared for a **private review workflow**.
-Public distribution of the PBIX, workbook, and screenshots requires a
-separate final approval, including consideration of any metadata that
-cannot be fully inspected with the available tools.
+- All published input data is **synthetic** and intended solely for demonstration.
+- The 2018–2019 period is historical sample context, not a current business forecast.
+- Category and supplier identities are fictitious.
+- Planned interventions, expected impacts, and simulated results are hypothetical examples.
+- **Actual financial realization data is unavailable** in the synthetic dataset. Blank actuals must not be interpreted as zero realized performance.
+- The simulated realized gross profit and plan-achievement metrics use separate illustrative test values and are **not evidence of achieved results**.
+- Any implementation in a real organisation would require validated operational data, business rules, access controls, and financial governance.
 
-## Portfolio context
+## Business value
 
-**Data Compass / Data-Driven Strategy** --- applying operational,
-procurement, and commercial experience to practical business
-intelligence and management decision support.
+The project illustrates how a unified commercial analytics model can help management move from descriptive reporting toward structured intervention prioritisation, scenario assessment, and measurable execution tracking.
+
+**Tools:** Microsoft Power BI Desktop · Power Query (M) · DAX · Excel
+
+---
+
+*Data Compass — data-driven commercial strategy and decision support.*
